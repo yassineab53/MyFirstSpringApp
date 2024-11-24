@@ -54,6 +54,10 @@ public class UniversityApplication implements CommandLineRunner {
         productList3.forEach(p->{
             System.out.println(p.toString());
         });
-
+        System.out.println("--------------------------------");
+        List<Product> productList4 = productRepository.search2(5000.0);
+        productList4.forEach(p->{
+            System.out.println(p.toString());
+        });
     }
 }
