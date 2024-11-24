@@ -24,7 +24,7 @@ public class ProductRestService {
     //si je veux un produit specifique par id par exemple
     @GetMapping("/products/{id}")
     //public Product getProduct(@PathVariable int id) {}
-    public Product product(Long id) {
+    public Product product(@PathVariable Long id) {
         return productRepository.findById(id).get();
     }
 }
