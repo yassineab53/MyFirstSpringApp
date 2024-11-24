@@ -16,7 +16,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     // methode qui permet de chercher les produits dont le nom contient mc
     //way 1 to do it
     List<Product> findByNameContaining(String mc);
-    //way 2 to to it
+    //way 2 to to it using annotation @Query using HQL (JPA QL)
     @Query("SELECT p FROM Product p WHERE p.name LIKE :x")
     public List<Product> search(@Param("x") String mc);
 
