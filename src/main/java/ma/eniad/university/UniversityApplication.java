@@ -42,5 +42,11 @@ public class UniversityApplication implements CommandLineRunner {
         listProduits.forEach(p->{
             System.out.println(p.toString());
         });
+        System.out.println("--------------------------------");
+
+        List<Product> listProduits2 = productRepository.findByNameContaining("%Car%");
+        listProduits.forEach(p->{
+            System.out.println(p.toString());
+        });
     }
 }
