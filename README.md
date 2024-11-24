@@ -49,7 +49,7 @@ This project was built as an introduction to:
 
 #### 1. Clone the Repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/yassineab53/MyFirstSpringApp
 cd university
 ```
 #### 2. Database Configuration
