@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author $ {USER}
@@ -24,7 +25,11 @@ public class ProductRestService {
     //si je veux un produit specifique par id par exemple
     @GetMapping("/products/{id}")
     //public Product getProduct(@PathVariable int id) {}
-    public Product product(@PathVariable Long id) {
+    /*public Product product(@PathVariable Long id) {
         return productRepository.findById(id).get();
+    }*/
+    public Product product(@PathVariable int id) {
+        Optional<Product> byId = productRepository.findById((long) id);
+        return byId.get();
     }
 }
