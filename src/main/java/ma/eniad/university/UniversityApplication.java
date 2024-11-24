@@ -48,7 +48,12 @@ public class UniversityApplication implements CommandLineRunner {
         listProduits.forEach(p->{
             System.out.println(p.toString());
         });
-
+        System.out.println("*********************************");
+        // chercher les produit superieur à 5000
+        List<Product> productList3 = productRepository.findByPriceGreaterThan(5000.0);
+        productList3.forEach(p->{
+            System.out.println(p.toString());
+        });
 
     }
 }
