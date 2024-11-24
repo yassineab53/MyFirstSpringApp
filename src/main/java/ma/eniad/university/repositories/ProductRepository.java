@@ -22,6 +22,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     //chercher les produit superieur à un prix using first method
     List<Product> findByPriceGreaterThan(Double price);
+    //second way : using annotation @Query with HQL (JPA QL)
+    @Query("SELECT p FROM Product p WHERE p.price > :x")
+    public List<Product> search2(@Param("x") Double price);
 
 
 
