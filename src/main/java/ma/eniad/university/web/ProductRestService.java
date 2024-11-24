@@ -4,6 +4,7 @@ import ma.eniad.university.entities.Product;
 import ma.eniad.university.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,5 +19,12 @@ public class ProductRestService {
     @GetMapping("/products")  //localhost:8085/products
     public List<Product> products() {
         return productRepository.findAll();
+    }
+
+    //si je veux un produit specifique par id par exemple
+    @GetMapping("/products/{id}")
+    //public Product getProduct(@PathVariable int id) {}
+    public Product product(Long id) {
+        return productRepository.findById(id).get();
     }
 }
