@@ -43,7 +43,7 @@ public class UniversityApplication implements CommandLineRunner {
             System.out.println(p.toString());
         });
         System.out.println("--------------------------------");
-
+        //using annotation @Query using HQL (JPA QL)
         List<Product> listProduits2 = productRepository.findByNameContaining("%Car%");
         listProduits.forEach(p->{
             System.out.println(p.toString());
