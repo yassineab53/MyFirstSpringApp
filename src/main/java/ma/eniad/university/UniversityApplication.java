@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Collections;
 import java.util.List;
 
 @SpringBootApplication
@@ -30,5 +31,9 @@ public class UniversityApplication implements CommandLineRunner {
         products.forEach(p->{
             System.out.println(p.toString());
         });
+
+        Product product = productRepository.findById(Long.valueOf(1)).get();
+        System.out.println("******************************");
+        System.out.println(product.toString());
     }
 }
