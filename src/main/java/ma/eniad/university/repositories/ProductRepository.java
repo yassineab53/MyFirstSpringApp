@@ -20,6 +20,10 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("SELECT p FROM Product p WHERE p.name LIKE :x")
     public List<Product> search(@Param("x") String mc);
 
+    //chercher les produit superieur à un prix using first method
+    List<Product> findByPriceGreaterThan(Double price);
+
+
 
 
 
