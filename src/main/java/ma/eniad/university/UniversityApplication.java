@@ -1,13 +1,34 @@
 package ma.eniad.university;
 
+import ma.eniad.university.entities.Product;
+import ma.eniad.university.repositories.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class UniversityApplication {
+import java.util.List;
 
+@SpringBootApplication
+public class UniversityApplication implements CommandLineRunner {
+    @Autowired
+    private ProductRepository productRepository;
     public static void main(String[] args) {
+
         SpringApplication.run(UniversityApplication.class, args);
     }
 
+    @Override
+    public void run(String... args) throws Exception {
+        productRepository.save(new Product(null, "Computer", 4300, 3));
+        productRepository.save(new Product(null, "Smart Phone", 2100, 5));
+        productRepository.save(new Product(null, "Car", 45300, 1));
+        productRepository.save(new Product(null, "IPhone", 6300, 2));
+
+        List<Product> products = productRepository.findAll();
+        //products.forEach(System.out::println);
+        products.forEach(p->{
+            System.out.println(p.toString());
+        });
+    }
 }
